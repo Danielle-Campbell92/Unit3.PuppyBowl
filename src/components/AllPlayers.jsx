@@ -64,7 +64,7 @@ useEffect(() => {
                   filteredPlayers.map((player) => (
                    <div key={player.id}>
                      <h2 className='titleName'>{player.name}</h2>
-                     <img src={player.imageUrl} className='image' alt={player.name} />
+                     <img src={player.imageUrl} className='image'/>
                      <br></br>
                      <button onClick={() => navigate(`/player/${player.id}`)} className='button'>See More Details!</button>
                    </div>
