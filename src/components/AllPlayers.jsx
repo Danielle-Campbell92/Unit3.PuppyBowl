@@ -24,17 +24,17 @@ fetchPlayers()
 const handleSearch = (e) => {
     const term = e.target.value
     setSearchTerm(term)
-    if (term === '') {
+    if(term === ''){
         setFilteredPlayers(players);
-      } else {
+      }else{
         const filtered = players.filter(
           (player) =>
             player.name.toLowerCase().includes(term.toLowerCase()) ||
             player.breed.toLowerCase().includes(term.toLowerCase()) 
-        );
+        )
         setFilteredPlayers(filtered);
       }
-    };
+    }
 
     return(
         <>

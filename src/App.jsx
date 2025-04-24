@@ -17,8 +17,8 @@ function App() {
     <>
     <div>
       <h1>Meet the Roster for Puppy Bowl 2025!</h1>
-      <Link to="/allplayer" className='navLink'>All Players</Link>
-      <Link to="/addplayer" className='navLink'>Add A Player</Link>
+      <Link to="/allplayer" className='nav'>All Players</Link>
+      <Link to="/addplayer" className='nav'>Add A Player</Link>
     </div>
     <div>
     <Routes>

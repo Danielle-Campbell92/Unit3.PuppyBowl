@@ -24,17 +24,19 @@ const handleBackButton = () => {
 }
 
   return (
-    <div className="details-container">
+    <div>
       {playerDetails ? (
         <>
           <img src={playerDetails.imageUrl} className="image" alt={playerDetails.name} />
-          <h2 className='titleName'>{playerDetails.name}</h2>
+          <div className="details-container">
+          <h2 className="titleName">{playerDetails.name}</h2>
           <p>Breed: {playerDetails.breed}</p>
           <p>Status: {playerDetails.status}</p>
           <p>Team ID: {playerDetails.teamId}</p>
           <button onClick={handleBackButton} className="button">
             Go Back To Puppies!
           </button>
+          </div>
         </>
       ) : (
         <p>Loading details...</p>

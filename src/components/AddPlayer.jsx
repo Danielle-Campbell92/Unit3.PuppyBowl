@@ -10,8 +10,7 @@ function AddPlayer({setPlayers}){
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        
+        e.preventDefault()
         try {
           const response = await fetch(
             "https://fsa-puppy-bowl.herokuapp.com/api/2501-PUPPIES/players",
@@ -27,14 +26,9 @@ function AddPlayer({setPlayers}){
                 status: "field", 
               }),
             }
-          );
+          )
       
-          const result = await response.json();
-      
-          if (!response.ok) {
-            throw new Error(result.error || "Failed to add player");
-          }
-      
+          const result = await response.json()
           console.log("Player added:", result.data);
           setPlayers((prev) => [...prev, result.data.newPlayer])
           setPlayerName("");
@@ -42,9 +36,9 @@ function AddPlayer({setPlayers}){
           setPlayerImageUrl("");
           navigate("/allplayer")
         } catch (error) {
-          console.error("Failed to add player:", error);
+          console.error(error);
         }
-      };      
+      }
 
     return(
         <>
