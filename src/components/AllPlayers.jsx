@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import {  useNavigate } from 'react-router-dom'
 
-function AllPlayers({players, setPlayers}){
+function AllPlayers({players, setPlayers, addPlayer, setAddPlayer}){
 const [search, setSearch] = useState("")
 const [filteredPlayers, setFilteredPlayers] = useState(players)
 const navigate = useNavigate()
@@ -37,23 +37,23 @@ useEffect(() => {
     setSearch(e.target.value)
   }
 
-  const handleRemove = async (id) => {
+  const handleRemove = async (playerId) => {
     try{
         const id = localStorage.getItem("id")
         const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2501-PUPPIES/players/${id}`, {
             method: "DELETE",
         })
-        if (response.ok) {
+        if(response.ok){
             setPlayers((prevPlayers) =>
-              prevPlayers.filter((id) => player.id !== playerId)
+              prevPlayers.filter((player) => player.id !== playerId)
             )
-          } else {
-            console.error(error);
+          }else{
+            console.error(error)
           }
-        } catch (error) {
-          console.error(error);
+        }catch(error){
+          console.error(error)
         }
-      };
+      }
 
     return(
     <>
@@ -67,11 +67,12 @@ useEffect(() => {
                      <img src={player.imageUrl} className='image'/>
                      <br></br>
                      <button onClick={() => navigate(`/player/${player.id}`)} className='button'>See More Details!</button>
+                     <button className='button' onClick={() => handleRemove(player.id)}>Remove Player</button> 
                    </div>
                  ))) : (
                     <p>No players found</p>
-                 )}
-            <button className='button' onClick={() => handleRemove(player.id)}>Remove Player</button>    
+                 )
+                 }
       </div>
     </>
     )
