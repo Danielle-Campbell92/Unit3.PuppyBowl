@@ -8,7 +8,6 @@ import SinglePlayer from './components/SinglePlayer'
 
 function App() {
   const [players, setPlayers] = useState([])
-  const [playerDetails, setPlayerDetails] = useState([])
   const [addPlayer, setAddPlayer] = useState(null)
 
 
