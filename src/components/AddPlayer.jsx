@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Navigate } from "react-router-dom"
 
 function AddPlayer({setPlayers}){
     const [playerName, setPlayerName] = useState("")
@@ -29,7 +28,9 @@ function AddPlayer({setPlayers}){
           )
       
           const result = await response.json()
-          console.log("Player added:", result.data);
+          console.log("Player added:", result.data)
+
+
           setPlayers((prev) => [...prev, result.data.newPlayer])
           setPlayerName("");
           setPlayerBreed("");
